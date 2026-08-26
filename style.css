@@ -10,7 +10,23 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    height: 100vh;
 }
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #7a553abf;
+}
+
+.topbar p {
+    padding: 10px;
+    font-family: "Yusei Magic", sans-serif;
+    margin: 7px;
+    background-color: #482d21;
+    color: #cfb59e;
+    border-radius: 15px;
+} 
 
 .welcome-screen {
     background-color: #cfb59e;
@@ -25,11 +41,12 @@ body {
 
 .welcome-screen h1 {
     font-family: "Bagel Fat One", system-ui;
-    font-size: 35px;
+    font-size: 45px;
     color: #4b2e21;
 }
 
 .welcome-screen p {
     font-family: "Yusei Magic", sans-serif;
     color: #4b2e21;
+    font-size: 20px;
 }
