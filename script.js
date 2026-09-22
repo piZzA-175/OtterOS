@@ -46,12 +46,14 @@ function dragElement(element) {
 // Opening & Closing The Window
 var welcomeScreen = document.querySelector("#welcome");
 
-function closeWindow() {
-  welcomeScreen.style.display = "none";
+function closeWindow(element) {
+  element.style.display = "none";
 }
 
-function openWindow() {
-  welcomeScreen.style.display = "flex";
+function openWindow(element) {
+  element.style.display = "flex";
+  biggestIndex++;
+  element.style.zIndex = biggestIndex;
 }
 
 var welcomeScreenClose = document.querySelector("#close-welcome");
@@ -63,4 +65,88 @@ welcomeScreenClose.addEventListener("click", function() {
 
 welcomeScreenOpen.addEventListener("click", function() {
   openWindow(welcomeScreen);
+});
+
+//---------------------------------------------------------------------------
+
+var selectedIcon = undefined;
+
+function selectIcon(element) {
+  element.classList.add("selected");
+  selectedIcon = element;
+} 
+
+function deselectIcon(element) {
+  if (!element) return; // nothing selected, nothing to do
+  element.classList.remove("selected");
+  selectedIcon = undefined;
+}
+
+function handleIconTap(element) {
+  if (element.classList.contains("selected")) {
+    deselectIcon(element)
+    openWindow(window)
+  } else {
+    selectIcon(element)
+  }
+  }
+
+dragElement(document.querySelector("#Otterwiki"));
+
+var otterwikiScreen = document.querySelector("#Otterwiki")
+var otterwikiScreenClose = document.querySelector("#close-Otterwiki")
+otterwikiScreenClose.addEventListener("click", () => closeWindow(otterwikiScreen));
+
+var otterwikiScreenOpen = document.querySelector("#Otterwiki-app");
+otterwikiScreenOpen.addEventListener("click", () => openWindow(otterwikiScreen));
+
+//for making window rise to the top
+var biggestIndex = 1;
+
+function handleWindowTap(element) {
+  biggestIndex++;
+  element.style.zIndex = biggestIndex;
+  deselectIcon(selectedIcon)
+}
+
+function addWindowTapHandling(element) {
+  element.addEventListener("mousedown", () =>
+    handleWindowTap(element)
+  )
+}
+
+addWindowTapHandling(welcomeScreen);
+handleWindowTap(welcomeScreen);
+addWindowTapHandling(otterwikiScreen);
+handleWindowTap(otterwikiScreen);
+
+function initializeWindow(elementName) {
+  var screen = document.querySelector("#" + elementName)
+  addWindowTapHandling(screen)
+  dragElement(screen)
+}
+
+initializeWindow("welcome");
+initializeWindow("Otterwiki");
+
+//to toggle side bar
+document.addEventListener("DOMContentLoaded", () => {
+ const sidebar = document.getElementById('sidebar');
+  const buttons = sidebar.querySelectorAll('.nav-btn');
+  const panels = document.querySelectorAll('.content');
+ 
+  sidebar.addEventListener('click', (e) => {
+    const link = e.target.closest('.nav-btn');
+    if (!link) return;
+ 
+    e.preventDefault(); // stop the browser from jumping/scrolling to the #anchor
+ 
+    const targetId = link.dataset.target;
+ 
+    // swap active link
+    buttons.forEach(b => b.classList.toggle('active', b === link));
+ 
+    // swap active panel
+    panels.forEach(c => c.classList.toggle('active', c.id === targetId));
+  });
 });

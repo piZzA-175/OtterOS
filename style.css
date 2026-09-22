@@ -5,7 +5,7 @@
 }
 
 body {
-    background-image: url(background.jpg);
+    background-image: url(images/background.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -13,10 +13,17 @@ body {
     height: 100vh;
 }
 
+#otter-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
 .topbar {
     display: flex;
     justify-content: space-between;
     background-color: #7a553abf;
+    z-index: 1000;
 }
 
 .topbar p {
@@ -40,6 +47,7 @@ body {
     flex-direction: column;
 }
 
+.Otterwiki h1,
 .welcome-screen h1 {
     font-family: "Bagel Fat One", system-ui;
     font-size: 45px;
@@ -56,7 +64,7 @@ body {
     cursor: pointer;
 }
 
-#close-welcome {
+.close-app {
     cursor: pointer;
     border-radius: 100%;
     background-color: #4b2e21;
@@ -65,4 +73,236 @@ body {
     margin: 1px;
     margin-bottom: 0;
     margin-left: auto;
+}
+
+#Otterwiki-app {
+    color:#482d21;
+    font-family: "Yusei Magic", sans-serif;
+    margin-right: auto;
+    display: grid;
+    place-items: center;
+    position: absolute;
+    left: 5px;
+    background-color: #7a553abf;
+    border-radius: 15px;
+    padding: 3px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+img[src*="book"] {
+    width: 60px;
+    height: 60px;
+}
+
+#Otterwiki-app p {
+    font-size: 12px;
+    text-align: center;
+    color: #2d1a0f;
+    padding: 3px;
+    margin-top: 0;
+    width: 70px;
+}
+
+#Otterwiki-app:hover {
+    background-color: #5f3c24c5;
+    color: #cfb59e;
+}
+
+.Otterwiki {
+    background-color: #cfb59e;
+    border: 2px solid #4b2e21;
+    color: #4b2e21;
+    border-radius: 15px;
+    padding: 20px;
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    width: 800px;
+    display: none;
+    height: 550px;
+}
+
+.Otterwiki p {
+    font-family: "Yusei Magic", sans-serif;
+    color: #4b2e21;
+    font-size: 15px;
+    border-bottom: 6px solid #4b2e21;
+    padding-bottom: 3px;
+} 
+
+.Otterwiki h1 span {
+    font-family: "Yusei Magic", sans-serif;
+}
+
+.sidebar {
+    list-style-type: none;
+    overflow-y: scroll;
+    width: 175px;
+    height: 350px;
+    scrollbar-width: thin;
+    scrollbar-color: #4b2e21 #cfb59e;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    cursor: pointer;
+    font-family: "Yusei Magic", sans-serif;
+    color: #4b2e21;
+    border: 4px solid #4b2e21;
+    font-size: 20px;
+}
+
+.sidebar a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.sidebar ul li:hover{
+    background-color: #4b2e21;
+    color: #cfb59e;
+}
+
+.sidebar ul li a:hover {
+    background-color: #4b2e21;
+    color: inherit;
+}
+
+#app-stuff {
+    display: flex;
+    gap: 0;
+}
+
+#congo-clawless-otter,
+#asian-small-clawed-otter,
+#african-clawless-otter,
+#southern-river-otter,
+#north-american-river-otter,
+#neotropical-otter,
+#mesoamerican-otter,
+#eurasian-otter,
+#hairy-nosed-otter,
+#spotted-necked-otter,
+#smooth-coated-otter,
+#giant-otter,
+#marine-otter,
+#sea-otter {
+    overflow-y: scroll;
+    height: 350px;
+    padding: 10px;
+    width: 582px;
+    color: #4b2e21;
+    scrollbar-width: thin;
+    scrollbar-color: #4b2e21 #cfb59e;
+}
+
+#congo-clawless-otter header,
+#asian-small-clawed-otter header,
+#african-clawless-otter header,
+#southern-river-otter header,
+#north-american-river-otter header,
+#neotropical-otter header,
+#mesoamerican-otter header,
+#eurasian-otter header,
+#hairy-nosed-otter header,
+#spotted-necked-otter header,
+#smooth-coated-otter header,
+#giant-otter header,
+#marine-otter header,
+#sea-otter header {
+    font-family: "Bagel Fat One", system-ui;
+    font-size: 40px;
+    line-height: 0.8;
+    margin-bottom: 6px;
+}
+
+img[src*="congo-clawless-otter"],
+img[src*="asian-small-clawed-otter"],
+img[src*="african-clawless-otter"],
+img[src*="southern-river-otter"],
+img[src*="north-american-river-otter"],
+img[src*="neotropical-otter"],
+img[src*="mesoamerican-otter"],
+img[src*="eurasian-otter"],
+img[src*="hairy-nosed-otter"],
+img[src*="spotted-necked-otter"],
+img[src*="smooth-coated-otter"],
+img[src*="giant-otter"],
+img[src*="marine-otter"],
+img[src*="sea-otter"] {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    float: right;
+}
+
+#congo-clawless-otter p,
+#asian-small-clawed-otter p,
+#african-clawless-otter p,
+#southern-river-otter p,
+#north-american-river-otter p,
+#neotropical-otter p,
+#mesoamerican-otter p,
+#eurasian-otter p,
+#hairy-nosed-otter p,
+#spotted-necked-otter p,
+#smooth-coated-otter p,
+#giant-otter p,
+#marine-otter p,
+#sea-otter p {
+    border: none;
+    font-family: "Yusei Magic", sans-serif;
+}
+
+#african-clawless-otter ul,
+#north-american-river-otter ul,
+#smooth-coated-otter ul,
+#sea-otter ul {
+    list-style-type: circle;
+    font-family: "Yusei Magic", sans-serif;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#congo-clawless-otter h2,
+#asian-small-clawed-otter h2,
+#african-clawless-otter h2,
+#southern-river-otter h2,
+#north-american-river-otter h2,
+#neotropical-otter h2,
+#mesoamerican-otter h2,
+#eurasian-otter h2,
+#hairy-nosed-otter h2,
+#spotted-necked-otter h2,
+#smooth-coated-otter h2,
+#giant-otter h2,
+#marine-otter h2,
+#sea-otter h2 {
+    font-family: "Bagel Fat One", system-ui;
+}
+
+#congo-clawless-otter a,
+#asian-small-clawed-otter a,
+#african-clawless-otter a,
+#southern-river-otter a,
+#north-american-river-otter a,
+#neotropical-otter a,
+#eurasian-otter a,
+#hairy-nosed-otter a,
+#spotted-necked-otter a,
+#smooth-coated-otter a,
+#giant-otter a,
+#marine-otter a,
+#sea-otter a {
+    color: #745445
+}
+
+.content {
+    display: none;
+}
+
+.content.active {
+    display: block;
 }
