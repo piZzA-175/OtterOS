@@ -82,10 +82,10 @@ function deselectIcon(element) {
   selectedIcon = undefined;
 }
 
-function handleIconTap(element) {
+function handleIconTap(element,screen) {
   if (element.classList.contains("selected")) {
     deselectIcon(element)
-    openWindow(window)
+    openWindow(screen)
   } else {
     selectIcon(element)
   }
@@ -120,14 +120,24 @@ handleWindowTap(welcomeScreen);
 addWindowTapHandling(otterwikiScreen);
 handleWindowTap(otterwikiScreen);
 
+function initializeIcon(name) {
+var icon = document.querySelector("#" + name + "-app")
+var screen = document.querySelector("#" + name)
+icon.addEventListener("click", () => handleIconTap(icon, screen));
+}
+
 function initializeWindow(elementName) {
   var screen = document.querySelector("#" + elementName)
   addWindowTapHandling(screen)
   dragElement(screen)
+  if(elementName != "welcome") {
+    initializeIcon(elementName)  
+  }
 }
 
 initializeWindow("welcome");
 initializeWindow("Otterwiki");
+initializeWindow("calculator");
 
 //to toggle side bar
 document.addEventListener("DOMContentLoaded", () => {
@@ -150,3 +160,71 @@ document.addEventListener("DOMContentLoaded", () => {
     panels.forEach(c => c.classList.toggle('active', c.id === targetId));
   });
 });
+
+var calculatorScreen = document.querySelector("#calculator")
+var otterwikiScreenClose = document.querySelector("#close-calculator")
+otterwikiScreenClose.addEventListener("click", () => closeWindow(calculatorScreen));
+
+var otterwikiScreenOpen = document.querySelector("#calculator-app");
+otterwikiScreenOpen.addEventListener("click", () => openWindow(calculatorScreen));
+
+//for calculator 
+let currentInput = '';
+let currentOperation = '';
+let previousInput = '';
+
+function appendNumber(number) {
+    currentInput += number;
+    document.getElementById('display').value = `${previousInput} ${currentOperation} ${currentInput}`;
+}
+
+function appendOperation(operation) {
+    if (currentInput === '') return;
+    if (previousInput !== '') {
+        calculate(); 
+    }
+    currentOperation = operation;
+    previousInput = currentInput;
+    currentInput = '';
+    document.getElementById('display').value = `${previousInput} ${currentOperation}`;
+}
+
+function calculate() {
+  if (previousInput === '' || currentInput === '') return;
+  let result;
+  let prev = parseFloat(previousInput);
+  let current = parseFloat(currentInput);
+
+  switch (currentOperation) {
+    case '+':
+      result = prev + current;
+      break;
+    case '-':
+      result = prev - current;
+      break;
+    case '*':
+      result = prev * current;
+      break;
+    case '/':
+      if (current === 0) {
+        alert("Cannot divide by zero");
+        return;
+      }
+        result = prev / current;
+        break;
+    default:
+      return;
+    }
+
+  currentInput = result.toString();
+  currentOperation = '';
+  previousInput = '';
+  document.getElementById('display').value = currentInput;
+}
+
+function clearDisplay() {
+    currentInput = '';
+    previousInput = '';
+    currentOperation = '';
+    document.getElementById('display').value = '';
+}

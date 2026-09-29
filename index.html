@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>OtterOS</title>
-        <script type="module" src="./script.js"></script>
+        <script src="./script.js" defer></script>
         <link rel="stylesheet" href="style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +23,7 @@
             <div class="close-app" id="close-welcome"></div>
             <h1>OtterOS</h1>
             <p><em>OtterOS</em> is a feature-limited<br>
-            OS based around <strong>Otters.</strong></p>
+            OS based around <strong>Otters.</strong>As of now it has an information app about otters and a calculator!</p>
         </div>
         <div class="selected" id="Otterwiki-app">
             <img src="images/book_icon.png">
@@ -278,6 +278,38 @@
                     <h2>Diet</h2>
                     <p>Congo clawless otters feed on fairly soft prey items, such as small land vertebrates, frogs, and eggs.</p>
                     <p><strong>Find out more <a href="https://en.wikipedia.org/wiki/Congo_clawless_otter" target="_blank">here!</a></strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="selected" id="calculator-app">
+            <img src="images/calculator_icon.png">
+            <p>Calculator</p>
+        </div>
+        <div class="calculator" id="calculator">
+            <div class="close-app" id="close-calculator"></div>
+            <h1>Calculator <span>ʕ´•ᴥ•`ʔ</span></h1>
+            <div class="cal-main">
+                <input type="text" id="display" class="display" disabled>
+                <div class="buttons">
+                    <button class="button clear" onclick="clearDisplay()">C</button>
+                    <button class="button operator" onclick="appendOperation('/')">/</button>
+                    <button class="button operator" onclick="appendOperation('*')">*</button>
+                    <button class="button operator" onclick="appendOperation('-')">-</button>
+
+                    <button class="button" onclick="appendNumber('7')">7</button>
+                    <button class="button" onclick="appendNumber('8')">8</button>
+                    <button class="button" onclick="appendNumber('9')">9</button>
+                    <button class="button operator" onclick="appendOperation('+')">+</button>
+
+                    <button class="button" onclick="appendNumber('4')">4</button>
+                    <button class="button" onclick="appendNumber('5')">5</button>
+                    <button class="button" onclick="appendNumber('6')">6</button>
+                    <button class="button equal operator" onclick="calculate()">=</button>
+
+                    <button class="button" onclick="appendNumber('1')">1</button>
+                    <button class="button" onclick="appendNumber('2')">2</button>
+                    <button class="button" onclick="appendNumber('3')">3</button>
+                    <button class="button" onclick="appendNumber('0')">0</button>
                 </div>
             </div>
         </div>
