@@ -1,3 +1,40 @@
+function tb8_makeArray(n){
+this.length = n;
+return this.length;
+}
+tb8_messages = new tb8_makeArray(3);
+tb8_messages[0] = "typing.......";
+tb8_messages[1] = "This is OtterOS!";
+tb8_messages[2] = "Have fun!!";
+tb8_rptType = 'infinite';
+tb8_rptNbr = 5;
+tb8_speed = 100;
+tb8_delay = 2000;
+var tb8_counter=1;
+var tb8_currMsg=0;
+var tb8_tekst ="";
+var tb8_i=0;
+var tb8_TID = null;
+function tb8_pisi(){
+tb8_tekst = tb8_tekst + tb8_messages[tb8_currMsg].substring(tb8_i, tb8_i+1);
+document.title = tb8_tekst;
+tb8_sp=tb8_speed;
+tb8_i++;
+if (tb8_i==tb8_messages[tb8_currMsg].length){
+tb8_currMsg++; tb8_i=0; tb8_tekst="";tb8_sp=tb8_delay;
+}
+if (tb8_currMsg == tb8_messages.length){
+if ((tb8_rptType == 'finite') && (tb8_counter==tb8_rptNbr)){
+clearTimeout(tb8_TID);
+return;
+}
+tb8_counter++;
+tb8_currMsg = 0;
+}
+tb8_TID = setTimeout("tb8_pisi()", tb8_sp);
+}
+tb8_pisi()
+
 function updateTime() {
     var currentTime = new Date().toLocaleString();
     var timeElement = document.querySelector("#time");
@@ -138,6 +175,7 @@ function initializeWindow(elementName) {
 initializeWindow("welcome");
 initializeWindow("Otterwiki");
 initializeWindow("calculator");
+initializeWindow("clicker");
 
 //to toggle side bar
 document.addEventListener("DOMContentLoaded", () => {
@@ -162,11 +200,11 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 var calculatorScreen = document.querySelector("#calculator")
-var otterwikiScreenClose = document.querySelector("#close-calculator")
-otterwikiScreenClose.addEventListener("click", () => closeWindow(calculatorScreen));
+var calculatorScreenClose = document.querySelector("#close-calculator")
+calculatorScreenClose.addEventListener("click", () => closeWindow(calculatorScreen));
 
-var otterwikiScreenOpen = document.querySelector("#calculator-app");
-otterwikiScreenOpen.addEventListener("click", () => openWindow(calculatorScreen));
+var calculatorScreenOpen = document.querySelector("#calculator-app");
+calculatorScreenOpen.addEventListener("click", () => openWindow(calculatorScreen));
 
 //for calculator 
 let currentInput = '';
@@ -227,4 +265,19 @@ function clearDisplay() {
     previousInput = '';
     currentOperation = '';
     document.getElementById('display').value = '';
+}
+
+//for clicker
+
+var clickerScreen = document.querySelector("#clicker")
+var clickerScreenClose = document.querySelector("#close-clicker")
+clickerScreenClose.addEventListener("click", () => closeWindow(clickerScreen));
+
+var clickerScreenOpen = document.querySelector("#clicker-app");
+clickerScreenOpen.addEventListener("click", () => openWindow(clickerScreen));
+
+let shell= document.querySelector('.shell-cost');
+
+function incrementShell() {
+  shell.innerHTML = parseFloat(shell.innerHTML) + 1;
 }

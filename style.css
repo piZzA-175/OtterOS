@@ -48,6 +48,7 @@ body {
     width: 310px;
 }
 
+.clicker h1,
 .calculator h1,
 .Otterwiki h1,
 .welcome-screen h1 {
@@ -92,12 +93,14 @@ body {
     cursor: pointer;
 }
 
+img[src*="clicker"],
 img[src*="calculator"],
 img[src*="book"] {
     width: 60px;
     height: 60px;
 }
 
+#clicker-app p,
 #calculator-app p,
 #Otterwiki-app p {
     font-size: 12px;
@@ -108,6 +111,7 @@ img[src*="book"] {
     width: 70px;
 }
 
+#clicker-app:hover,
 #calculator-app:hover,
 #Otterwiki-app:hover {
     background-color: #5f3c24c5;
@@ -138,6 +142,7 @@ img[src*="book"] {
     padding-bottom: 3px;
 } 
 
+.clicker h1 span,
 .calculator h1 span,
 .Otterwiki h1 span {
     font-family: "Yusei Magic", sans-serif;
@@ -331,4 +336,67 @@ img[src*="sea-otter"] {
 
 .button.operator {
     background-color: #623f30;
+}
+
+#clicker-app {
+    color:#482d21;
+    font-family: "Yusei Magic", sans-serif;
+    margin-right: auto;
+    display: grid;
+    place-items: center;
+    position: absolute;
+    left: 5px;
+    background-color: #7a553abf;
+    border-radius: 15px;
+    padding: 3px;
+    margin-top: 230px;
+    cursor: pointer;
+}
+
+.clicker {
+    background-color: #cfb59e;
+    border: 2px solid #4b2e21;
+    color: #4b2e21;
+    border-radius: 15px;
+    padding: 20px;
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    display: none;
+    width: 600px;
+    height: 400px;
+}
+
+#clicker h1{
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.clicker-main {
+    display: flex;
+    gap: 50px;
+}
+
+.left {
+    align-items: center;
+}
+
+.left h3 {
+    margin-top: 10px;
+    font-family: "Yusei Magic", sans-serif;
+    text-align: center;
+    color: #4b2e21;
+    border: 2px dashed #755848;
+}
+
+img[src*="seashell"] {
+    width: 160px;
+    margin: 20px;
+    cursor: pointer;
+}
+
+img[src*="seashell"]:active {
+    transform: scale(0.95);
 }
