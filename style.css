@@ -50,6 +50,7 @@ body {
     width: 310px;
 }
 
+.JSpaint h1,
 .clicker h1,
 .calculator h1,
 .Otterwiki h1,
@@ -95,6 +96,7 @@ body {
     cursor: pointer;
 }
 
+img[src*="paint"],
 img[src*="clicker"],
 img[src*="calculator"],
 img[src*="book"] {
@@ -102,6 +104,7 @@ img[src*="book"] {
     height: 60px;
 }
 
+#JSpaint-app p,
 #clicker-app p,
 #calculator-app p,
 #Otterwiki-app p {
@@ -113,6 +116,7 @@ img[src*="book"] {
     width: 70px;
 }
 
+#JSpaint-app:hover,
 #clicker-app:hover,
 #calculator-app:hover,
 #Otterwiki-app:hover {
@@ -144,6 +148,7 @@ img[src*="book"] {
     padding-bottom: 3px;
 } 
 
+.JSpaint h1 span,
 .clicker h1 span,
 .calculator h1 span,
 .Otterwiki h1 span {
@@ -517,4 +522,40 @@ img[src*="clicker-otter"] {
     padding: 5px 0 0 6px;
     height: 40px;
     width: 40px;
+}
+
+#JSpaint-app {
+    color:#482d21;
+    font-family: "Yusei Magic", sans-serif;
+    margin-right: auto;
+    display: grid;
+    place-items: center;
+    position: absolute;
+    left: 5px;
+    background-color: #7a553abf;
+    border-radius: 15px;
+    padding: 3px;
+    margin-top: 330px;
+    cursor: pointer;
+}
+
+.JSpaint {
+    background-color: #cfb59e;
+    border: 2px solid #4b2e21;
+    color: #4b2e21;
+    border-radius: 15px;
+    padding: 20px;
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    display: none;
+    width: 800px;
+    height: 530px;
+}
+
+#JSpaint h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
 }

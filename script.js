@@ -225,6 +225,7 @@ initializeWindow("welcome");
 initializeWindow("Otterwiki");
 initializeWindow("calculator");
 initializeWindow("clicker");
+initializeWindow("JSpaint")
 
 //to toggle side bar
 document.addEventListener("DOMContentLoaded", () => {
@@ -248,6 +249,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+//for calculator
+
 var calculatorScreen = document.querySelector("#calculator")
 var calculatorScreenClose = document.querySelector("#close-calculator")
 calculatorScreenClose.addEventListener("click", () => closeWindow(calculatorScreen));
@@ -255,7 +258,6 @@ calculatorScreenClose.addEventListener("click", () => closeWindow(calculatorScre
 var calculatorScreenOpen = document.querySelector("#calculator-app");
 calculatorScreenOpen.addEventListener("click", () => openWindow(calculatorScreen));
 
-//for calculator 
 let currentInput = '';
 let currentOperation = '';
 let previousInput = '';
@@ -403,3 +405,12 @@ function buyOtter() {
     spc += 5;
   }
 }
+
+//for JSpaint
+
+var jspaintScreen = document.querySelector("#JSpaint")
+var jspaintScreenClose = document.querySelector("#close-jspaint")
+jspaintScreenClose.addEventListener("click", () => closeWindow(jspaintScreen));
+
+var jspaintScreenOpen = document.querySelector("#JSpaint-app");
+jspaintScreenOpen.addEventListener("click", () => openWindow(jspaintScreen));
