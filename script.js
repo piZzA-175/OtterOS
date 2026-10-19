@@ -35,6 +35,55 @@ tb8_TID = setTimeout("tb8_pisi()", tb8_sp);
 }
 tb8_pisi()
 
+var trailLength = 11 
+var path = "images/cursor.png"
+
+var i, d = 0
+var images, storage, divs
+
+function initTrail() { 
+	images = new Array()
+  divs = new Array()
+	for (i = 0; i < parseInt(trailLength); i++) {
+		images[i] = new Image()
+		images[i].src = path
+    images[i].style.width = "34px"
+	}
+	storage = new Array() 
+	for (i = 0; i < images.length*3; i++) {
+		storage[i] = 0
+	}
+	for (i = 0; i < images.length; i++) { 
+    divs[i] = document.createElement("div")
+	  divs[i].style.cssText = "position:absolute;z-index:999999;height:0;width:0;pointer-events:none"
+	  divs[i].appendChild(images[i])
+	  document.body.appendChild(divs[i])
+	}
+	trail()
+}
+function trail() { 
+	for (i = 0; i < images.length; i++) { 
+		divs[i].style.top = storage[d] + "px" 
+    divs[i].style.left = storage[d+1] + "px"
+		d = d+2
+	}
+	for (i = storage.length; i >= 2; i--) { 
+		storage[i] = storage[i-2]
+	}
+	d = 0
+	setTimeout( trail , 10 )  
+}
+function processEvent(e) { // catches and processes the mousemove event 
+  storage[0] = e.pageY+12
+  storage[1] = e.pageX+12
+}
+document.addEventListener("mousemove", processEvent) // start capturing
+if (document.body) {
+	initTrail()
+} else {
+	document.addEventListener("DOMContentLoaded", initTrail)
+}
+
 function updateTime() {
     var currentTime = new Date().toLocaleString();
     var timeElement = document.querySelector("#time");
@@ -277,7 +326,80 @@ var clickerScreenOpen = document.querySelector("#clicker-app");
 clickerScreenOpen.addEventListener("click", () => openWindow(clickerScreen));
 
 let shell= document.querySelector('.shell-cost');
+let parsedShell = parseFloat(shell.innerHTML);
+
+spc = 1
 
 function incrementShell() {
-  shell.innerHTML = parseFloat(shell.innerHTML) + 1;
+  parsedShell += spc;
+  shell.innerHTML = parsedShell;
+}
+
+let rockCost = document.querySelector('.rock-cost');
+let parsedRockCost = parseFloat(rockCost.innerHTML);
+
+let rockIncrease = document.querySelector('.rock-increase');
+let parsedRockIncrease = parseFloat(rockIncrease.innerHTML);
+
+function buyRock() {
+  if (parsedShell >= parsedRockCost) {
+    parsedShell -= parsedRockCost;
+    shell.innerHTML = parsedShell;
+    spc += parsedRockIncrease;
+  }
+}
+
+let kelpCost = document.querySelector('.kelp-cost');
+let parsedKelpCost = parseFloat(kelpCost.innerHTML);
+
+function buyKelp() {
+  if (parsedShell >= parsedKelpCost) {
+    parsedShell -= parsedKelpCost;
+    shell.innerHTML = parsedShell;
+    spc += 1;
+  }
+}
+
+let fishCost = document.querySelector('.fish-cost');
+let parsedFishCost = parseFloat(fishCost.innerHTML);
+
+function buyFish() {
+  if (parsedShell >= parsedFishCost) {
+    parsedShell -= parsedFishCost;
+    shell.innerHTML = parsedShell;
+    spc += 2;
+  }
+}
+
+let crabCost = document.querySelector('.crab-cost');
+let parsedCrabCost = parseFloat(crabCost.innerHTML);
+
+function buyCrab() {
+  if (parsedShell >= parsedCrabCost) {
+    parsedShell -= parsedCrabCost;
+    shell.innerHTML = parsedShell;
+    spc += 2;
+  }
+}
+
+let urchinCost = document.querySelector('.urchin-cost');
+let parsedUrchinCost = parseFloat(urchinCost.innerHTML);
+
+function buyUrchin() {
+  if (parsedShell >= parsedUrchinCost) {
+    parsedShell -= parsedUrchinCost;
+    shell.innerHTML = parsedShell;
+    spc += 3;
+  }
+}
+
+let otterCost = document.querySelector('.otter-cost');
+let parsedOtterCost = parseFloat(otterCost.innerHTML);
+
+function buyOtter() {
+  if (parsedShell >= parsedOtterCost) {
+    parsedShell -= parsedOtterCost;
+    shell.innerHTML = parsedShell;
+    spc += 5;
+  }
 }

@@ -12,7 +12,7 @@
     </head>
     <body>
         <div id="otter-image">
-            <img src="images/otter.png">
+            <img src="images/otter.png" draggable="false">
         </div>
         <div class="topbar" id="top">
             <p>OtterOS</p>
@@ -323,17 +323,100 @@
             <div class="clicker-main">
                 <div class="left">
                     <h3>Shells: <span class="shell-cost">0</span></h3>
-                    <img src="images/seashell.png" alt="seashell clicker button" onclick="incrementShell()">
+                    <img src="images/seashell.png" alt="seashell clicker button" onclick="incrementShell()" class="clicker-img">
                 </div>
                 <div class="right">
-                    <div class="">
 
-                    </div>
-                    <div class="middle">
+                    <p class="sp">scroll to see more upgrades</p>
 
+                    <div class="upgrade" onclick="buyRock()">
+                        <div class="left-section">
+                            <img src="images/rock.png" alt="rock" class="upgrade-img">
+                        </div>
+                        <div class="right-section">
+                            <h4>Rock Friend</h4>
+                            <div class="cost">
+                                <p>Cost: <span class="rock-cost">20</span> shells</p>
+                            </div>
+                        </div>
+                        <div class="upgrade-info">
+                            <p>+<span class="rock-increase">1</span> shell per click</p>
+                        </div>
                     </div>
-                    <div class="">
-                        
+
+                    <div class="upgrade" onclick="buyKelp()">
+                        <div class="left-section">
+                            <img src="images/kelp.png" alt="kelp" class="upgrade-img">
+                        </div>
+                        <div class="right-section">
+                            <h4>Kelp</h4>
+                            <div class="cost">
+                                <p>Cost: <span class="kelp-cost">50</span> shells</p>
+                            </div>
+                        </div>
+                        <div class="upgrade-info">
+                            <p>+3 shell per click</p>
+                        </div>
+                    </div>
+
+                    <div class="upgrade" onclick="buyFish()">
+                        <div class="left-section">
+                            <img src="images/fish.png" alt="fish" class="upgrade-img">
+                        </div>
+                        <div class="right-section">
+                            <h4>Very Yummy Fish</h4>
+                            <div class="cost">
+                                <p>Cost: <span class="fish-cost">105</span> shells</p>
+                            </div>
+                        </div>
+                        <div class="upgrade-info">
+                            <p>+5 shell per click</p>
+                        </div>
+                    </div>
+
+                    <div class="upgrade" onclick="buyCrab()">
+                        <div class="left-section">
+                            <img src="images/crab.png" alt="crab" class="upgrade-img">
+                        </div>
+                        <div class="right-section">
+                            <h4>A Cool Crab</h4>
+                            <div class="cost">
+                                <p>Cost: <span class="crab-cost">260</span> shells</p>
+                            </div>
+                        </div>
+                        <div class="upgrade-info">
+                            <p>+7 shell per click</p>
+                        </div>
+                    </div>
+
+                    <div class="upgrade" onclick="buyUrchin()">
+                        <div class="left-section">
+                            <img src="images/sea-urchin.png" alt="Sea Urchin" class="upgrade-img">
+                        </div>
+                        <div class="right-section">
+                            <h4>Sea Urchin</h4>
+                            <div class="cost">
+                                <p>Cost: <span class="urchin-cost">1200</span> shells</p>
+                            </div>
+                        </div>
+                        <div class="upgrade-info">
+                            <p>+10 shell per click</p>
+                        </div>
+                    </div>
+
+                    <div class="upgrade" onclick="buyOtter()">
+                        <div class="left-section">
+                            <img src="images/clicker-otter.png" alt="An Otter" class="upgrade-img">
+                        </div>
+                        <div class="right-section">
+                            <h4>A Very Cute Otter</h4>
+                            <div class="cost">
+                                <p>Cost: <span class="otter-cost">8000</span> shells</p>
+                            </div>
+                        </div>
+                        <div class="upgrade-info">
+                            <p>+15 shell per click</p>
+                        </div>
                     </div>
                 </div>
             </div> 
