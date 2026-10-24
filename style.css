@@ -50,6 +50,7 @@ body {
     width: 310px;
 }
 
+.todo h1,
 .JSpaint h1,
 .clicker h1,
 .calculator h1,
@@ -79,6 +80,7 @@ body {
     margin: 1px;
     margin-bottom: 0;
     margin-left: auto;
+    flex-shrink: 0;
 }
 
 #Otterwiki-app {
@@ -94,6 +96,7 @@ body {
     padding: 3px;
     margin-top: 30px;
     cursor: pointer;
+    transition: 200ms ease;
 }
 
 img[src*="paint"],
@@ -104,6 +107,7 @@ img[src*="book"] {
     height: 60px;
 }
 
+#todo-app p,
 #JSpaint-app p,
 #clicker-app p,
 #calculator-app p,
@@ -116,6 +120,7 @@ img[src*="book"] {
     width: 70px;
 }
 
+#todo-app:hover,
 #JSpaint-app:hover,
 #clicker-app:hover,
 #calculator-app:hover,
@@ -148,6 +153,7 @@ img[src*="book"] {
     padding-bottom: 3px;
 } 
 
+.todo h1 span,
 .JSpaint h1 span,
 .clicker h1 span,
 .calculator h1 span,
@@ -171,11 +177,14 @@ img[src*="book"] {
     color: #4b2e21;
     border: 4px solid #4b2e21;
     font-size: 20px;
+    transition: 150ms ease;
 }
 
 .sidebar a {
     color: inherit;
     text-decoration: none;
+    flex-grow: 1;
+    transition: 150ms ease;
 }
 
 .sidebar ul li:hover{
@@ -268,6 +277,7 @@ img[src*="sea-otter"] {
     padding: 3px;
     margin-top: 130px;
     cursor: pointer;
+    transition: 200ms ease;
 }
 
 .calculator {
@@ -358,6 +368,7 @@ img[src*="sea-otter"] {
     padding: 3px;
     margin-top: 230px;
     cursor: pointer;
+    transition: 200ms ease;
 }
 
 .clicker {
@@ -442,6 +453,7 @@ img[src*="sea-otter"] {
     cursor: pointer;
     position: relative;
     margin-top: 25px;
+    transition: 150ms ease;
 }
 
 .upgrade:hover {
@@ -537,6 +549,7 @@ img[src*="clicker-otter"] {
     padding: 3px;
     margin-top: 330px;
     cursor: pointer;
+    transition: 200ms ease;
 }
 
 .JSpaint {
@@ -558,4 +571,177 @@ img[src*="clicker-otter"] {
 #JSpaint h1 {
     font-size: 28px;
     margin-bottom: 10px;
+}
+
+#todo-app {
+    color:#482d21;
+    font-family: "Yusei Magic", sans-serif;
+    margin-right: auto;
+    display: grid;
+    place-items: center;
+    position: absolute;
+    left: 93px;
+    background-color: #7a553abf;
+    border-radius: 15px;
+    padding: 3px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: 200ms ease;
+}
+
+img[src*="todo"] {
+    height: 60px;
+}
+
+.todo {
+    background-color: #cfb59e;
+    border: 2px solid #4b2e21;
+    color: #4b2e21;
+    border-radius: 15px;
+    padding: 20px;
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    display: none;
+    width: 650px;
+    height: 450px;
+}
+
+.todo h1 {
+    font-size: 33px;
+    margin-bottom: 15px;
+}
+
+.todo-main {
+    font-family: "Yusei Magic", sans-serif;
+    color: #4b2e21;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+}
+
+.todo-main form {
+    position: relative;
+}
+
+#todo-input {
+    box-sizing: border-box;
+    border: 2px solid #4b2e21;
+    border-radius: 1000px;
+    background-color: #4b2e2133;
+    font: inherit;
+    width: 600px;
+    padding: 12px 20px;
+    color: #4b2e21;
+    caret-color: #745445;
+}
+
+#todo-input::placeholder {
+    color: #745445;
+}
+
+#todo-input:focus { 
+    outline: none;
+}
+
+#add-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #4b2e21;
+    color: #cfb59e;
+    font: inherit;
+    height: 100%;
+    padding: 0 30px;
+    border-radius: 1000px;
+    border: none;
+    cursor: pointer;
+}
+
+.task {
+    margin: 10px;
+    padding: 0 16px;
+    background-color: #4b2e2133;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    width: 600px;
+}
+
+.task .todo-text {
+    padding: 10px;
+    padding-right: 0;
+    flex-grow: 1;
+    transition: 200ms;
+}
+
+.delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-button:hover svg {
+    fill: #4b2e21;
+}
+
+.delete-button svg {
+    transition: 200ms ease;
+}
+
+.custom-checkbox {
+    flex-shrink: 0;
+    min-height: 17px;
+    min-width: 17px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #4b2e21;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4b2e2140;
+    cursor: pointer;
+    transition: 200ms ease;
+}
+
+input[type="checkbox"]:checked ~ .custom-checkbox {
+    background-color: #4b2e21;
+}
+
+input[type="checkbox"]:checked ~ .custom-checkbox svg {
+    fill: #cfb59e;
+}
+
+input[type="checkbox"]:checked ~ .todo-text {
+    text-decoration: line-through;
+    color: #4b2e2166;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+#todo-list {
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 250px;
+    position: relative;
+}
+
+#todo-list::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
+#todo-list::-webkit-scrollbar-thumb {
+    background: transparent;
 }

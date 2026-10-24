@@ -105,6 +105,9 @@ function dragElement(element) {
 
   function startDragging(e) {
     e = e || window.event;
+
+    if (e.target.closest("input, button, textarea, a, label, iframe")) return;
+
     e.preventDefault();
     initialX = e.clientX;
     initialY = e.clientY;
@@ -225,7 +228,8 @@ initializeWindow("welcome");
 initializeWindow("Otterwiki");
 initializeWindow("calculator");
 initializeWindow("clicker");
-initializeWindow("JSpaint")
+initializeWindow("JSpaint");
+initializeWindow("todo");
 
 //to toggle side bar
 document.addEventListener("DOMContentLoaded", () => {
@@ -414,3 +418,92 @@ jspaintScreenClose.addEventListener("click", () => closeWindow(jspaintScreen));
 
 var jspaintScreenOpen = document.querySelector("#JSpaint-app");
 jspaintScreenOpen.addEventListener("click", () => openWindow(jspaintScreen));
+
+//for todo app
+
+var todoScreen = document.querySelector("#todo")
+var todoScreenClose = document.querySelector("#close-todo")
+todoScreenClose.addEventListener("click", () => closeWindow(todoScreen));
+
+var todoScreenOpen = document.querySelector("#todo-app");
+todoScreenOpen.addEventListener("click", () => openWindow(todoScreen));
+
+const todoForm = document.querySelector("#todo-form");
+const todoInput = document.getElementById("todo-input");
+const todoListUL = document.getElementById("todo-list");
+
+let allToDos = getTodos();
+updateTodoList();
+
+todoForm.addEventListener("submit", function(e){
+  e.preventDefault();
+  addToDo();
+})
+
+function addToDo() {
+  const todoText = todoInput.value.trim();
+  if (todoText.length > 0) {
+    const todoObject = {
+      text: todoText,
+      completed: false
+    }
+    allToDos.push(todoObject);
+    updateTodoList();
+    saveTodos();
+    todoInput.value = "";
+  }
+}
+
+function updateTodoList() {
+  todoListUL.innerHTML = "";
+  allToDos.forEach((task , taskIndex) => {
+    todoItem = createTodoItem(task , taskIndex);
+    todoListUL.append(todoItem);
+  })
+}
+
+function createTodoItem(task , taskIndex) {
+  const todoID = "todo-" + taskIndex;
+  const todoLI = document.createElement("li");
+  const todoText = task.text;
+  todoLI.className = "task";
+  todoLI.innerHTML = `
+    <input type="checkbox" id="${todoID}">
+    <label class="custom-checkbox" for="${todoID}">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="transparent"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
+    </label>
+    <label class="todo-text" for="${todoID}">
+      ${todoText}
+    </label>
+    <button class="delete-button">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#4b2e21bf"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>
+    </button>
+  `
+  const deleteButton = todoLI.querySelector(".delete-button");
+  deleteButton.addEventListener("click", () =>{
+    deleteTodoItem(taskIndex);
+  })
+  const checkbox = todoLI.querySelector("input");
+  checkbox.addEventListener("change", ()=> {
+    allToDos[taskIndex].completed = checkbox.checked;
+    saveTodos();
+  })
+  checkbox.checked = task.completed
+  return todoLI;
+}
+
+function deleteTodoItem(taskIndex) {
+  allToDos = allToDos.filter((_, i)=> i !== taskIndex);
+  saveTodos();
+  updateTodoList();
+}
+
+function saveTodos() {
+  const todoJson = JSON.stringify(allToDos);
+  localStorage.setItem("todos", todoJson);
+}
+
+function getTodos() {
+  const todos = localStorage.getItem("todos") || "[]";
+  return JSON.parse(todos);
+}
