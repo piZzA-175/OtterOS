@@ -5,6 +5,8 @@ This is a WebOS based based and inspired around *otters* which was made with HTM
 Features Include:
 - **Draggable Windows**
 - **Closable Windows**
+- **Typing Animation On The Title of The Webpage**
+- **An Otter That Follows Your Mouse and Has a Short Trail**
 - **Welcome Screen** : It is automatically open when u open the OS. It can be closed with the close button on the top right and opened by clicking the *'Live Laugh Love Otters'* box on the topbar.
 - **Otterwiki** : An app which tells u information on all the 14 different otter species.
 - **Calculator** : Which can handle basic arithematic operations such as addition, subtraction, multiplication and division.
