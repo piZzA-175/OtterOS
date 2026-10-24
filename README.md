@@ -4,6 +4,7 @@ This is a WebOS based based and inspired around *otters* which was made with HTM
 
 Features Include:
 - **Draggable Windows**
+- **Closable Windows**
 - **Welcome Screen** : It is automatically open when u open the OS. It can be closed with the close button on the top right and opened by clicking the *'Live Laugh Love Otters'* box on the topbar.
 - **Otterwiki** : An app which tells u information on all the 14 different otter species.
 - **Calculator** : Which can handle basic arithematic operations such as addition, subtraction, multiplication and division.
@@ -11,7 +12,7 @@ Features Include:
 - **JS Paint** : You can draw and paint to your heart's content. \^o^/
 - **ToDo App** : You can write down your tasks and come back later to check them off. You can also delete already completed tasks.
 
-<img width="1917" height="910" alt="Screenshot 2026-09-29 172700" src="https://github.com/user-attachments/assets/45007bc0-d8ca-40a6-b03b-4d59d9125b7e" />
+<img width="1917" height="911" alt="Screenshot 2026-10-24 200657" src="https://github.com/user-attachments/assets/7d0020ac-7c28-4070-90b7-cac16c6617a2" />
 You can try it here ---> https://pizza-175.github.io/OtterOS/
 
 
